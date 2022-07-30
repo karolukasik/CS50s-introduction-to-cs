@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block main %}
+<form action="/" method="post">
+    <table class="table mx-auto" style="width: 60%">
+        <thead>
+            <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Symbol</th>
+                <th scope="col">Company</th>
+                <th scope="col">No. of shares</th>
+                <th scope="col">Current share price $</th>
+                <th scope="col">Current value $</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stockAmountLine in purchaseList %}
+            <tr>
+                <th scope="row">{{ stockAmountLine["ordinal"] }}</th>
+                <td>{{ stockAmountLine["symbol"] }}</td>
+                <td>{{ stockAmountLine["company"] }}</td>
+                <td>{{ stockAmountLine["amount"] }}</td>
+                <td>{{ stockAmountLine["currentPrice"] }}</td>
+                <td>{{ stockAmountLine["currentValue"] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class="border-0 text-end" colspan="5">Cash balance $</th>
+                <td class="border-0">{{ cashBalance }}</td>
+            </tr>
+            <tr>
+                <th class="border-0 text-end" colspan="5">Total balance $</th>
+                <td class="border-0">{{ totalBalance }}</td>
+            </tr>
+        </tfoot>
+    </table>
+</form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block main %}
+<script>
+    window.onload = generateSuccessMessage();
+    function generateSuccessMessage() {
+        alert("Registration was succesfull!\nNow you may log in to your account");
+        window.location="/login";
+    }
+</script>
+
+
+{% endblock %}
